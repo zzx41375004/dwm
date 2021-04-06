@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -23,12 +23,17 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const char col_green[]       = "#50fa7b";
+static const char col_magenta[]     = "#ff6ac1";
+static const char col_red[]         = "#ff5c57";
+static const char col_black[]       = "#192224";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	/* [SchemeSel]  = { col_gray4, col_red,  col_red  }, */
+	[SchemeSel]  = { col_black, col_red,  col_red  },
 };
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -84,6 +89,7 @@ static const char *lightup[]  = { "/home/zzx/dwm/scripts/lightup.sh", NULL };
 static const char *voltoggle[]  = { "/home/zzx/dwm/scripts/vol-toggle.sh", NULL };
 static const char *voldown[]  = { "/home/zzx/dwm/scripts/vol-down.sh", NULL };
 static const char *volup[]  = { "/home/zzx/dwm/scripts/vol-up.sh", NULL };
+static const char *cWallpaper[]  = { "/home/zzx/dwm/scripts/changeWallpaper.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -95,9 +101,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F4,     spawn,          {.v = voltoggle } },
 	{ MODKEY,                       XK_F5,     spawn,          {.v = voldown } },
 	{ MODKEY,                       XK_F6,     spawn,          {.v = volup } },
+	{ MODKEY,                       XK_w,     spawn,          {.v = cWallpaper } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_k,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_i,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_i,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      incnmaster,     {.i = +1 } },
@@ -122,7 +129,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_k,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	//{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
