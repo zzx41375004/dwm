@@ -1,2 +1,2 @@
 #!/bin/bash
-xbacklight -dec 5
+sudo xbacklight -dec 5
