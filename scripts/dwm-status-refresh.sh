@@ -116,11 +116,13 @@ print_bat(){
 		#echo -e "${charge}"
 	#fi
 	#echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
-	echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
+	# echo "$(get_battery_combined_percent)% $(get_battery_charging_status), $(get_time_until_charged )";
+	echo "$(get_battery_combined_percent)% $(get_battery_charging_status)";
 }
 
 print_date(){
-	date '+%H:%M %m月%d日'
+	# date '+%H:%M %m月%d日'
+	date '+%H:%M %m/%d/%Y'
 	# date '+%H:%M %Y年%m月%d日'
 }
 
@@ -136,13 +138,42 @@ LOC=$(readlink -f "$0")
 DIR=$(dirname "$LOC")
 export IDENTIFIER="unicode"
 
+dwm_alsa () {
+    VOL=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+    printf "%s" "$SEP1"
+    if [ "$IDENTIFIER" = "unicode" ]; then
+        if [ "$VOL" -eq 0 ]; then
+            printf " 🔇 "
+        elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
+            printf " %s%% 🔈 " "$VOL"
+        elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
+            printf " %s%% 🔉 " "$VOL"
+        else
+            printf " %s%% 🔊 " "$VOL"
+        fi
+    else
+        if [ "$VOL" -eq 0 ]; then
+            printf "MUTE"
+        elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
+            printf "VOL %s%%" "$VOL"
+        elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
+            printf "VOL %s%%" "$VOL"
+        else
+            printf "VOL %s%%" "$VOL"
+        fi
+    fi
+    printf "%s\n" "$SEP2"
+}
+
 #. "$DIR/dwmbar-functions/dwm_transmission.sh"
 #. "$DIR/dwmbar-functions/dwm_cmus.sh"
 #. "$DIR/dwmbar-functions/dwm_resources.sh"
 #. "$DIR/dwmbar-functions/dwm_battery.sh"
 #. "$DIR/dwmbar-functions/dwm_mail.sh"
 #. "$DIR/dwmbar-functions/dwm_backlight.sh"
-. "$DIR/dwmbar-functions/dwm_alsa.sh"
+# . "$DIR/dwmbar-functions/dwm_alsa.sh"
+# . "$DIR/dwmbar-functions/dwm_alsa.sh"
+# . "~/dwm/scripts/dwmbar-functions/dwm_alsa.sh"
 #. "$DIR/dwmbar-functions/dwm_pulse.sh"
 #. "$DIR/dwmbar-functions/dwm_weather.sh"
 #. "$DIR/dwmbar-functions/dwm_vpn.sh"
@@ -157,7 +188,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name " 莫等闲 💿 $(print_mem)M ⬇️ $vel_recv ⬆️ $vel_trans $(dwm_alsa)[ $(print_bat) ]$(show_record) $(print_date) "
+xsetroot -name " $(print_mem)M $vel_recv ⬇️ $vel_trans ⬆️$(dwm_alsa)$(print_bat) $(print_date)"
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
