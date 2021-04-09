@@ -102,7 +102,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F4,     spawn,          {.v = voltoggle } },
 	{ MODKEY,                       XK_F5,     spawn,          {.v = voldown } },
 	{ MODKEY,                       XK_F6,     spawn,          {.v = volup } },
-	{ MODKEY,                       XK_w,      spawn,          {.v = cWallpaper } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = cWallpaper } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ControlMask,           XK_k,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_i,      rotatestack,    {.i = -1 } },
@@ -148,12 +148,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,      viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
-	TAGKEYS(                        XK_j,                      3)
-	TAGKEYS(                        XK_k,                      4)
-	TAGKEYS(                        XK_l,                      5)
-	TAGKEYS(                        XK_u,                      6)
-	TAGKEYS(                        XK_i,                      7)
-	TAGKEYS(                        XK_o,                      8)
+	TAGKEYS(                        XK_q,                      3)
+	TAGKEYS(                        XK_w,                      4)
+	TAGKEYS(                        XK_e,                      5)
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
