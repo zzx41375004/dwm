@@ -91,9 +91,12 @@ static const char *voltoggle[]  = { "/home/zzx/dwm/scripts/vol-toggle.sh", NULL 
 static const char *voldown[]  = { "/home/zzx/dwm/scripts/vol-down.sh", NULL };
 static const char *volup[]  = { "/home/zzx/dwm/scripts/vol-up.sh", NULL };
 static const char *cWallpaper[]  = { "/home/zzx/dwm/scripts/changeWallpaper.sh", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_s,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
