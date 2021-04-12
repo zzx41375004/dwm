@@ -107,8 +107,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F6,     spawn,          {.v = volup } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = cWallpaper } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY|ControlMask,           XK_k,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ControlMask,           XK_i,      rotatestack,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_i,      rotatestack,    {.i = -1 } },
+  { MODKEY,                       XK_m,      focusmaster,    {0} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_l,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_i,      focusstack,     {.i = -1 } },
@@ -147,8 +148,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_j,      viewtoleft,     {0} },
-	{ MODKEY|ShiftMask,             XK_l,      viewtoright,    {0} },
+	/* { MODKEY|ShiftMask,             XK_j,      viewtoleft,     {0} }, */
+	/* { MODKEY|ShiftMask,             XK_l,      viewtoright,    {0} }, */
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
 	TAGKEYS(                        XK_q,                      3)
