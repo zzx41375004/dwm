@@ -49,6 +49,7 @@ print_volume() {
 
 print_mem(){
 	memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024))
+  memfree=$(expr $memfree / 100)
 	echo -e "$memfree"
 }
 
@@ -188,7 +189,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name "Hello World! $(print_mem)M $vel_recv ⬇️ $vel_trans ⬆️$(dwm_alsa)$(print_bat) $(print_date)"
+xsetroot -name "宁 静 以 致 远 $(print_mem)HM $vel_recv ⬇️ $vel_trans ⬆️$(dwm_alsa)$(print_bat) $(print_date)"
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
