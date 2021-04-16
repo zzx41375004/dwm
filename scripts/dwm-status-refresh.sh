@@ -118,7 +118,7 @@ print_bat(){
 	#fi
 	#echo "$(get_battery_charging_status) $(get_battery_combined_percent)%, $(get_time_until_charged )";
 	# echo "$(get_battery_combined_percent)% $(get_battery_charging_status), $(get_time_until_charged )";
-	echo "$(get_battery_combined_percent)% $(get_battery_charging_status)";
+	echo "$(get_battery_charging_status) $(get_battery_combined_percent)%";
 }
 
 print_date(){
@@ -146,11 +146,11 @@ dwm_alsa () {
         if [ "$VOL" -eq 0 ]; then
             printf " 🔇 "
         elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
-            printf " %s%% 🔈 " "$VOL"
+            printf " 🔈 %s%% " "$VOL"
         elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
-            printf " %s%% 🔉 " "$VOL"
+            printf " 🔉 %s%% " "$VOL"
         else
-            printf " %s%% 🔊 " "$VOL"
+            printf " 🔊 %s%% " "$VOL"
         fi
     else
         if [ "$VOL" -eq 0 ]; then
@@ -189,7 +189,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name "宁 静 以 致 远 $(print_mem)HM $vel_recv ⬇️ $vel_trans ⬆️$(dwm_alsa)$(print_bat) $(print_date)"
+xsetroot -name " 宁 静 以 致 远  﫭 $(print_mem) ⬇️ $vel_recv ⬆️ $vel_trans$(dwm_alsa)$(print_bat)   $(print_date)"
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
