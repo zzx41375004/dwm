@@ -83,8 +83,10 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *killdwm[]  = { "/home/zzx/dwm/scripts/killdwm.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *screenshot[]  = { "/home/zzx/dwm/scripts/screenshot.sh", NULL };
 static const char *lightdown[]  = { "/home/zzx/dwm/scripts/lightdown.sh", NULL };
 static const char *lightup[]  = { "/home/zzx/dwm/scripts/lightup.sh", NULL };
 static const char *voltoggle[]  = { "/home/zzx/dwm/scripts/vol-toggle.sh", NULL };
@@ -107,6 +109,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F6,     spawn,          {.v = volup } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = cWallpaper } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = killdwm } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_i,      rotatestack,    {.i = -1 } },
   { MODKEY,                       XK_m,      focusmaster,    {0} },
