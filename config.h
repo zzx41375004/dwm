@@ -17,7 +17,8 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 /* static const char *fonts[]          = { "monospace:size=16" }; */
 /* static const char dmenufont[]       = "monospace:size=16"; */
 /* static const char *fonts[]          = { "SauceCodePro Nerd Font Mono:size=16" }; */
-static const char *fonts[]          = { "Fira Code Nerd Font Mono:size=16" };
+// static const char *fonts[]          = { "Fira Code Nerd Font Mono:size=16" };
+static const char *fonts[]          = { "Fira Code Nerd Font Mono, Microsoft YaHei:size=16" };
 static const char dmenufont[]       = "Fira Code Nerd Font Mono:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -86,6 +87,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *killdwm[]  = { "/home/zzx/dwm/scripts/killdwm.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *opacityToggle[]  = { "/home/zzx/dwm/scripts/opacityToggle.sh", NULL };
 static const char *screenshot[]  = { "/home/zzx/dwm/scripts/screenshot.sh", NULL };
 static const char *lightdown[]  = { "/home/zzx/dwm/scripts/lightdown.sh", NULL };
 static const char *lightup[]  = { "/home/zzx/dwm/scripts/lightup.sh", NULL };
@@ -100,6 +102,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_n,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+    { MODKEY,                       XK_o,      spawn,          {.v = opacityToggle } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = lightdown } },
@@ -113,7 +116,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_i,      rotatestack,    {.i = -1 } },
-  { MODKEY,                       XK_m,      focusmaster,    {0} },
+    { MODKEY,                       XK_m,      focusmaster,    {0} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_l,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_i,      focusstack,     {.i = -1 } },
@@ -169,7 +172,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_d,      quit,           {0} },
 };
 
 /* button definitions */
