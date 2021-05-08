@@ -100,8 +100,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24"
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_n,  togglescratch,  {.v = scratchpadcmd } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_k,      togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_y,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_o,      spawn,          {.v = opacityToggle } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
@@ -114,17 +114,17 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = killdwm } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_i,      rotatestack,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_e,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_u,      rotatestack,    {.i = -1 } },
     { MODKEY,                       XK_m,      focusmaster,    {0} },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_l,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_e,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_n,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_u,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	/* { MODKEY,                       XK_h,      incnmaster,     {.i = +1 } }, */
 	/* { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, */
-	{ MODKEY|ControlMask,           XK_j,      setmfact,       {.f = -0.05} },
-	{ MODKEY|ControlMask,           XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ControlMask,           XK_n,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ControlMask,           XK_i,      setmfact,       {.f = +0.05} },
 	/* { MODKEY|Mod1Mask,              XK_h,      incrgaps,       {.i = +1 } }, */
 	/* { MODKEY|Mod1Mask,              XK_l,      incrgaps,       {.i = -1 } }, */
 	/* { MODKEY|Mod1Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } }, */
@@ -143,7 +143,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
 	/* { MODKEY,                       XK_+,      zoom,           {0} }, */
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_u,      killclient,     {0} },
+	{ MODKEY,                       XK_l,      killclient,     {0} },
 	/* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
 	//{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	/* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
@@ -161,8 +161,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
 	TAGKEYS(                        XK_q,                      3)
 	TAGKEYS(                        XK_w,                      4)
-	TAGKEYS(                        XK_e,                      5)
-	TAGKEYS(                        XK_r,                      6)
+	TAGKEYS(                        XK_f,                      5)
+	TAGKEYS(                        XK_p,                      6)
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
