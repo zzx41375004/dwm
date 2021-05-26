@@ -1,3 +1,3 @@
 #!/bin/bash
 
-killall startdwm
+sudo killall lightdm
