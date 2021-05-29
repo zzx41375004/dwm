@@ -98,6 +98,7 @@ static const char *voltoggle[]  = { "/home/zzx/dwm/scripts/vol-toggle.sh", NULL 
 static const char *voldown[]  = { "/home/zzx/dwm/scripts/vol-down.sh", NULL };
 static const char *volup[]  = { "/home/zzx/dwm/scripts/vol-up.sh", NULL };
 static const char *cWallpaper[]  = { "/home/zzx/dwm/scripts/changeWallpaper.sh", NULL };
+static const char *touchpadToggle[]  = { "/home/zzx/dwm/scripts/touchpadToggle.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
@@ -106,6 +107,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_y,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_o,      spawn,          {.v = opacityToggle } },
+    { MODKEY,                       XK_t,      spawn,          {.v = touchpadToggle } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = lightdown } },
