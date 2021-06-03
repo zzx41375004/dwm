@@ -68,9 +68,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+    { "全屏",      monocle },
 	{ "平铺",      tile },    /* first entry is default */
 	/* { "><>",      NULL },    /1* no layout function means floating behavior *1/ */
-	{ "全屏",      monocle },
 };
 
 /* key definitions */

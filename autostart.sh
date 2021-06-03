@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xlayoutdisplay -d 96
+xlayoutdisplay -m
 # xrandr --output eDP1 --mode 1920x1080
 # xrandr --output HDMI-A-0 --same-as eDP --mode 1920x1080
 # xrandr --output DisplayPort-0 --same-as eDP --mode 1920x1080
