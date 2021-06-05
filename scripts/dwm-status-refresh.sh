@@ -87,7 +87,8 @@ get_battery_combined_percent() {
 
 	percent=$(expr $total_charge / $battery_number);
 
-	echo $percent;
+	# echo $percent;
+    echo $total_charge;
 }
 
 get_battery_charging_status() {
