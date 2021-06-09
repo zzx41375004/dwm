@@ -90,6 +90,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *killdwm[]  = { "/home/zzx/dwm/scripts/killdwm.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *roficmd[]  = { "/home/zzx/dwm/scripts/rofi.sh", NULL };
 static const char *opacityToggle[]  = { "/home/zzx/dwm/scripts/opacityToggle.sh", NULL };
 static const char *screenshot[]  = { "/home/zzx/dwm/scripts/screenshot.sh", NULL };
 static const char *lightdown[]  = { "/home/zzx/dwm/scripts/lightdown.sh", NULL };
