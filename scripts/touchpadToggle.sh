@@ -1,6 +1,6 @@
 #!/bin/bash
 
-id=$(xinput list | grep Touchpad | sed -r 's/.*id=([1-9]*).*/\1/')
+id=$(xinput list | grep Touchpad | sed -r 's/.*id=([0-9]*).*/\1/')
 if [ $id ]
 then
     str=$(xinput list-props $id | grep Enabled)
