@@ -75,6 +75,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define ALTKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -90,7 +91,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *killdwm[]  = { "/home/zzx/dwm/scripts/killdwm.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-static const char *roficmd[]  = { "/home/zzx/dwm/scripts/rofi.sh", NULL };
 static const char *opacityToggle[]  = { "/home/zzx/dwm/scripts/opacityToggle.sh", NULL };
 static const char *screenshot[]  = { "/home/zzx/dwm/scripts/screenshot.sh", NULL };
 static const char *lightdown[]  = { "/home/zzx/dwm/scripts/lightdown.sh", NULL };
@@ -100,6 +100,7 @@ static const char *voldown[]  = { "/home/zzx/dwm/scripts/vol-down.sh", NULL };
 static const char *volup[]  = { "/home/zzx/dwm/scripts/vol-up.sh", NULL };
 static const char *cWallpaper[]  = { "/home/zzx/dwm/scripts/changeWallpaper.sh", NULL };
 static const char *touchpadToggle[]  = { "/home/zzx/dwm/scripts/touchpadToggle.sh", NULL };
+static const char *colemakToggle[]  = { "/home/zzx/dwm/scripts/colemakToggle", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
 
@@ -111,6 +112,7 @@ static Key keys[] = {
     { MODKEY,                       XK_t,      spawn,          {.v = touchpadToggle } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = browsercmd } },
+    { MODKEY,                       XK_4,      spawn,          {.v = colemakToggle } },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = lightdown } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = lightup } },
 	{ MODKEY,                       XK_F4,     spawn,          {.v = voltoggle } },
@@ -123,6 +125,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_u,      rotatestack,    {.i = -1 } },
     { MODKEY,                       XK_m,      focusmaster,    {0} },
+    { ALTKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_e,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_n,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_u,      focusstack,     {.i = -1 } },
@@ -172,7 +175,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
+	// TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
